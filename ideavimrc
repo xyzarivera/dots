@@ -1,17 +1,10 @@
 let mapleader=' '
-let maplocalleader='\\'
 
 " Plugins
-set easymotion
 set surround
-set multiple-cursors
 set which-key
 " set commentary
 set NERDTree
-
-" Plugin Config
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_migemo = 1
 
 " Settings
 set showmode
@@ -37,23 +30,10 @@ set clipboard+=ideaput
 
 " Keybindings
 
-" quick save
-nmap <leader>w :w!<cr>
-
 " Navigation
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
-map U <C-R>
-map [[ <Action>(MethodUp)
-map ]] <Action>(MethodDown)
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gp :action GotoSuperMethod<CR>
-nnoremap gt :action GotoTest<CR>
-
-" Tab also goes to the pair match
-nnoremap <Tab> %
-vnoremap <Tab> %
+nnoremap <leader>ci :action GotoImplementation<CR>
+nnoremap <leader>cd :action GotoDeclaration<CR>
+nnoremap <leader>ct :action GotoTest<CR>
 
 " Better navigation on panes
 noremap <C-h> <C-w>h
@@ -61,32 +41,18 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Use shift-H and shift-L for move to beginning/end
-nnoremap H 0
-nnoremap L $
-
 " Clears the search register
 " There's an issue with hlsearch where it persists across restart
 " https://youtrack.jetbrains.com/issue/VIM-2879/Dont-persist-search-highlighting-using-hlsearch-when-restart-the-IDE
 nnoremap <leader>/ :nohlsearch<CR>
 
-" Quick yanking to the end of the line
-nnoremap Y y$
-
 " Refactoring
-map <leader>r <Action>(Refactorings.QuickListPopupAction)
+map <leader>cr <Action>(Refactorings.QuickListPopupAction)
 map <leader>= <Action>(ReformatCode)
-map <leader>o <Action>(OptimizeImports)
+map <leader>co <Action>(OptimizeImports)
 
 " Config
 nnoremap <leader>ve :e ~/.ideavimrc<CR>
 nnoremap <leader>vs :action IdeaVim.ReloadVimRc.reload<CR>
-
-" Distraction Free
-map <C-z> <Action>(ToggleDistractionFreeMode)
-
-" Split
-map <C-\> <Action>(SplitVertically)
-map <C-=> <Action>(SplitHorizontally)
 
 imap <A-\> <Action>(copilot.requestCompletions)
