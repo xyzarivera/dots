@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # files to symlink
-files=()
+files=(config/alacritty)
 
 # symlink-ing
 for f in $files; do
