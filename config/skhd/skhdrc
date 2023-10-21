@@ -1,0 +1,5 @@
+.blacklist [
+  "DaVinci Resolve"
+]
+
+alt - space : open -a /Applications/Alacritty.app 

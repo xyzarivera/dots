@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
 # files to symlink
-files=(config/alacritty)
+files=(
+  config/alacritty
+  config/skhd
+)
 
 # symlink-ing
 for f in $files; do
