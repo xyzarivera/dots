@@ -5,6 +5,7 @@ files=(
   config/alacritty
   config/skhd
   tmux.conf
+  ideavimrc
 )
 
 # symlink-ing
