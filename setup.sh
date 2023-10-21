@@ -4,6 +4,7 @@
 files=(
   config/alacritty
   config/skhd
+  tmux.conf
 )
 
 # symlink-ing
