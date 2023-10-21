@@ -6,6 +6,7 @@ files=(
   config/skhd
   tmux.conf
   ideavimrc
+  config/lazygit
 )
 
 # symlink-ing
