@@ -2,4 +2,6 @@
   "DaVinci Resolve"
 ]
 
-alt - space : open -a /Applications/Alacritty.app 
+cmd + ctrl - t : open -a /Applications/Alacritty.app
+cmd + ctrl - g : open -a /Applications/Google\ Chrome.app
+cmd + ctrl - e : open -a ~/Applications/WebStorm.app
