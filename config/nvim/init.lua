@@ -37,7 +37,7 @@ vim.opt.matchtime = 2
 vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.showmatch = true
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -174,3 +174,30 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines up" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines down" })
 
 vim.keymap.set("n", "Q", "<nop>", { desc = "Disable macro recording" })
+
+-- Plugins
+
+if not package.loaded.lazy then
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    })
+  end
+  vim.opt.rtp:prepend(lazypath)
+
+  require("lazy").setup({
+    spec = {
+      { import = "xyz.plugins" },
+    },
+    install = {
+      missing = true,
+      colorscheme = { "synthwave84" },
+    },
+  })
+end
