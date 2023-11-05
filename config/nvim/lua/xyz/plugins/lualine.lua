@@ -7,7 +7,7 @@ return {
     main = "lualine",
     opts = {
       options = {
-        theme = "synthwave84",
+        theme = "tokyonight",
       },
       sections = {
         lualine_c = {

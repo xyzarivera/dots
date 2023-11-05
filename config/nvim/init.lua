@@ -46,6 +46,7 @@ vim.opt.cursorline = true
 vim.opt.title = true
 vim.opt.vb = false
 vim.opt.colorcolumn = "80"
+vim.opt.termguicolors = true
 
 -- PERFORMANCE
 vim.g.matchparen_timeout = 10
@@ -197,7 +198,7 @@ if not package.loaded.lazy then
     },
     install = {
       missing = true,
-      colorscheme = { "synthwave84" },
+      colorscheme = { "tokyonight" },
     },
   })
 end
