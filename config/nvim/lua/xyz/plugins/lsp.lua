@@ -57,8 +57,8 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { 
-          "tailwindcss", 
+        ensure_installed = {
+          "tailwindcss",
           "tsserver",
           "cssls",
           "emmet_language_server",
