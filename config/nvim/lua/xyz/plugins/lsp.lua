@@ -57,16 +57,13 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "tailwindcss",
+        ensure_installed = { 
+          "tailwindcss", 
           "tsserver",
           "cssls",
           "emmet_language_server",
           "eslint",
           "lua_ls",
-          "stylua",
-          "pyrite",
-          "black",
         },
         automatic_installation = true,
       })
@@ -152,7 +149,7 @@ return {
       local get_mason_servers = require("mason-lspconfig").get_installed_servers
 
       for _, server_name in ipairs(get_mason_servers()) do
-        local xyz_lsp_config = XYZ_LSP_CONFIG[server_name] or
+        local xyz_lsp_config = XYZ_LSP_CONFIG[server_name] or {}
 
         lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
           capabilities = lsp_capabilities,
