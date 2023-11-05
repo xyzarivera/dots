@@ -1,10 +1,8 @@
 return {
   {
-    "LunarVim/synthwave84.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    init = function()
-      vim.cmd[[colorscheme synthwave84]]
-    end,
+    opts = {},
   }
 }
