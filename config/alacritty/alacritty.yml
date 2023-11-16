@@ -4,8 +4,11 @@ env:
 
 window:
   dimensions:
-    columns: 200
-    lines: 60
+    columns: 160
+    lines: 45
+  position:
+    x: 10
+    y: 10
   padding:
     x: 10
     y: 10
