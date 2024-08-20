@@ -1,11 +1,10 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "diegoulloao/neofusion.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lualine").setup({
         options = {
-          theme = require("neofusion.lualine"),
           component_separators = "",
           section_separators = "",
         },

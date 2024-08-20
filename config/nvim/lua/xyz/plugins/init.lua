@@ -39,6 +39,5 @@ lazy.setup({
   },
   install = {
     missing = true,
-    colorscheme = { "neofusion" },
   },
 })
