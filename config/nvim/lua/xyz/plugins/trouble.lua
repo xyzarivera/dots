@@ -3,21 +3,21 @@ local keybind = require("xyz.utils.keybind")
 return {
   {
     "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    opts = { use_diagnostic_signs = true, auto_close = true, auto_preview = false },
+    cmd = { "Trouble" },
+    opts = { focus = true, auto_close = true, auto_preview = false },
     keys = {},
     init = function()
       keybind.set(
         "n",
         "<leader>xx",
-        "<cmd>TroubleToggle document_diagnostics<cr>",
-        "Document Diagnostics (Trouble)"
+        "<cmd>Trouble diagnostics toggle<cr>",
+        "Diagnostics (Trouble)"
       )
       keybind.set(
         "n",
         "<leader>xX",
-        "<cmd>TroubleToggle workspace_diagnostics<cr>",
-        "Workspace Diagnostics (Trouble)"
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        "Buffer Diagnostics (Trouble)"
       )
       keybind.set(
         "n",
@@ -28,12 +28,12 @@ return {
       keybind.set(
         "n",
         "<leader>xQ",
-        "<cmd>TroubleToggle quickfix<cr>",
+        "<cmd>Trouble qflist<cr>",
         "Quickfix List (Trouble)"
       )
       keybind.set("n", "[q", function()
         if require("trouble").is_open() then
-          require("trouble").previous({ skip_groups = true, jump = true })
+          require("trouble").prev({ skip_groups = true, jump = true })
         else
           local ok, err = pcall(vim.cmd.cprev)
           if not ok then
