@@ -3,7 +3,7 @@ local keybind = require("xyz.utils.keybind")
 return {
   {
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    -- event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     opts = {
       formatters_by_ft = {
