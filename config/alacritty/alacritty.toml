@@ -1,4 +1,4 @@
-import = ["/Users/saiza/.local/share/nvim/lazy/tokyonight.nvim/extras/alacritty/tokyonight_night.yml", "/Users/saiza/.config/alacritty/themes/tokyonight-night.toml"]
+general.import = ["/Users/saiza/.local/share/nvim/lazy/tokyonight.nvim/extras/alacritty/tokyonight_night.yml", "/Users/saiza/.config/alacritty/themes/tokyonight-night.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
