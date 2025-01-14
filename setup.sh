@@ -8,7 +8,7 @@ files=(
   tmux.conf
   ideavimrc
   config/lazygit
-  zshenv
+  # zshenv
 )
 
 # symlink-ing
