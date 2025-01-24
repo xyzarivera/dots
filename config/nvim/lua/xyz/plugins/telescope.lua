@@ -9,6 +9,13 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "nvim-telescope/telescope-ui-select.nvim" },
       { "smartpde/telescope-recent-files" },
+      {
+        "danielfalk/smart-open.nvim",
+        branch = "0.2.x",
+        dependencies = {
+          "kkharji/sqlite.lua",
+        },
+      },
     },
     config = function()
       local telescope = require("telescope")
@@ -23,7 +30,7 @@ return {
             vertical = {
               mirror = true,
               prompt_position = "top",
-              preview_height = 0.3
+              preview_height = 0.3,
             },
             height = 0.80,
             width = 0.87,
@@ -79,6 +86,7 @@ return {
       telescope.load_extension("fzf")
       telescope.load_extension("ui-select")
       telescope.load_extension("recent_files")
+      telescope.load_extension("smart_open")
 
       keybind.set(
         "n",
@@ -86,20 +94,15 @@ return {
         "<CMD>Telescope live_grep<CR>",
         "Telescope: Search"
       )
-      keybind.set(
-        "n",
-        "<leader>.",
-        function()
-          local path = vim.fn.expand("%:p:h")
-          if vim.bo.filetype == "oil" then
-            path = string.sub(path, 5)
-          end
-          require("telescope.builtin").live_grep({
-            cwd = path
-          })
-        end,
-        "Telescope: Search"
-      )
+      keybind.set("n", "<leader>.", function()
+        local path = vim.fn.expand("%:p:h")
+        if vim.bo.filetype == "oil" then
+          path = string.sub(path, 5)
+        end
+        require("telescope.builtin").live_grep({
+          cwd = path,
+        })
+      end, "Telescope: Search")
       keybind.set(
         "n",
         "<leader>:",
@@ -111,7 +114,7 @@ return {
       keybind.set(
         "n",
         "<leader><leader>",
-        "<CMD>Telescope git_files show_untracted=true<CR>",
+        "<CMD>Telescope smart_open cwd_only=true match_algorithm=fzf<CR>",
         "Telescope: Git Files"
       ) -- TODO: Conditionally trigger git_files based on directory is git project
       keybind.set(
