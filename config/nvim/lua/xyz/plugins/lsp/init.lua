@@ -125,6 +125,8 @@ return {
         },
       })
 
+      vim.diagnostic.config({ virtual_text = true })
+
       for _, server_name in ipairs(get_mason_servers()) do
         local xyz_lsp_config = configured_servers[server_name] or {}
 
