@@ -4,7 +4,8 @@
 - Terminal: Alacritty
 - Shell: zsh
 - Window manager: tmux 
-- Text Editor: Neovim
+- Text Editor: Neovim 0.11
+- Text Editor Plugin Manager: lazy.nvim
 
 ## Installation
 
