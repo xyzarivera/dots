@@ -131,11 +131,6 @@ return {
 
          local lsp_server_name = server_name
 
-        -- temporarily rename tsserver to ts_ls because of an update
-        if server_name == "tsserver" then
-          lsp_server_name = "ts_ls"
-        end
-
         lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
           capabilities = lsp_capabilities,
         }, xyz_lsp_config))
