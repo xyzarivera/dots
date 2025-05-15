@@ -42,6 +42,85 @@ local XYZ_LSP_CONFIG = {
       },
     },
   },
+  ts_ls = {
+    before_init = function(_, config)
+      table.insert(config.init_options.plugins, {
+        name = "@vue/typescript-plugin",
+        languages = { "vue" },
+        location = vim.fn.expand(
+          "$MASON/packages/vue-language-server/node_modules/@vue/language-server"
+        ),
+      })
+    end,
+    init_options = {
+      plugins = {},
+    },
+    filetypes = {
+      "typescript",
+      "javascript",
+      "javascriptreact",
+      "typescriptreact",
+      "vue",
+    },
+    commands = {
+      OrganizeImports = {
+        function()
+          Client:exec_cmd({
+            command = "_typescript.organizeImports",
+            arguments = { vim.api.nvim_buf_get_name(0) },
+            title = "",
+          })
+        end,
+        description = "Organize Imports",
+      },
+    },
+    settings = {
+      javascript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = false,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = false,
+        },
+      },
+      typescript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = false,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = false,
+        },
+      },
+    },
+  },
+  volar = {
+    settings = {
+      scss = {
+        lint = {
+          unknownAtRules = "ignore",
+        },
+      },
+      css = {
+        lint = {
+          unknownAtRules = "ignore",
+        },
+      },
+      vue = {
+        inlayHints = {
+          missingProps = true,
+          inlineHandlerLeading = false,
+          optionsWrapper = false,
+          vBindShorthand = false,
+        },
+      },
+    },
+  },
 }
 
 return {
@@ -75,60 +154,10 @@ return {
       local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       local get_mason_servers = require("mason-lspconfig").get_installed_servers
 
-      local configured_servers = vim.tbl_deep_extend("force", XYZ_LSP_CONFIG, {
-        tsserver = {
-          filetypes = {
-            "typescript",
-            "javascript",
-            "javascriptreact",
-            "typescriptreact",
-          },
-          on_attach = function()
-            keybind.set("", "<leader>co", ":OrganizeImports<CR>")
-          end,
-          commands = {
-            OrganizeImports = {
-              function()
-                vim.lsp.buf.execute_command({
-                  command = "_typescript.organizeImports",
-                  arguments = { vim.api.nvim_buf_get_name(0) },
-                  title = "",
-                })
-              end,
-              description = "Organize Imports",
-            },
-          },
-          settings = {
-            javascript = {
-              inlayHints = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = false,
-              },
-            },
-            typescript = {
-              inlayHints = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = false,
-              },
-            },
-          },
-        },
-      })
-
       vim.diagnostic.config({ virtual_text = true })
 
       for _, server_name in ipairs(get_mason_servers()) do
-        local xyz_lsp_config = configured_servers[server_name] or {}
+        local xyz_lsp_config = XYZ_LSP_CONFIG[server_name] or {}
 
         vim.lsp.config(
           server_name,
