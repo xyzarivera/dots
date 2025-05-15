@@ -72,7 +72,6 @@ return {
         automatic_installation = true,
       })
 
-      local lspconfig = require("lspconfig")
       local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       local get_mason_servers = require("mason-lspconfig").get_installed_servers
 
@@ -129,11 +128,12 @@ return {
       for _, server_name in ipairs(get_mason_servers()) do
         local xyz_lsp_config = configured_servers[server_name] or {}
 
-         local lsp_server_name = server_name
-
-        lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
-          capabilities = lsp_capabilities,
-        }, xyz_lsp_config))
+        vim.lsp.config(
+          server_name,
+          vim.tbl_deep_extend("force", {
+            capabilities = lsp_capabilities,
+          }, xyz_lsp_config)
+        )
       end
 
       local function setup_keybindings(args)
