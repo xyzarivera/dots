@@ -21,6 +21,7 @@ end
 
 lazy.setup({
   spec = {
+    { "folke/lazy.nvim", version = "*" },
     require("xyz.plugins.colorscheme"),
     require("xyz.plugins.git"),
     require("xyz.plugins.whichkey"),
@@ -36,6 +37,7 @@ lazy.setup({
     require("xyz.plugins.cmp"),
     require("xyz.plugins.lsp"),
     require("xyz.plugins.format"),
+    require("xyz.plugins.hardtime"),
   },
   install = {
     missing = true,

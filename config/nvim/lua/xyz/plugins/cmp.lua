@@ -48,7 +48,11 @@ return {
 
       cmp.setup({
         formatting = {
-          format = lsp_kind.cmp_format(),
+          expandable_indicator = false,
+          fields = { "kind", "abbr", "menu" },
+          format = lsp_kind.cmp_format({
+            mode = "symbol",
+          }),
         },
         snippet = {
           expand = function(args)

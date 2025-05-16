@@ -18,7 +18,7 @@ return {
             {
               function()
                 local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                local clients = vim.lsp.get_active_clients()
+                local clients = vim.lsp.get_client()
 
                 if next(clients) == nil then
                   return buf_ft
