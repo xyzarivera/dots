@@ -11,26 +11,22 @@ files=(
   # zshenv
 )
 
-# symlink-ing
 for f in $files; do
   dest="$HOME/.$f"
 
-  #fails if file exists
-  #check prev file is symlinked
-  # -L checks file is a symlink
+  # Check if file is a symlink (-L) 
   if [[ -L "$dest" ]]; then
     # we unlink instead of rm -rf to avoid unwanted deletion of actual source
-    # unlink is deleteion of symlink file
+    # unlink is "deletion" equivalent of symlink file
     unlink "$dest"
 
-    # -f checks if provided path is a file
-    # -d is a directory 
+    # -f checks if file
+    # -d if directory 
   elif [[ -f "$dest" || -d "$dest" ]]; then
     echo "Failed to symlink $dest; Non symlinked file/dir exists"
     continue
   fi
 
-  # ln = link
-  # -s = symbolic
+  # create a symbolic (-s) link (ln)
   ln -s "$PWD/$f" "$dest"
 done
