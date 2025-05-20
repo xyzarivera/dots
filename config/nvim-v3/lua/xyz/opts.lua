@@ -13,7 +13,10 @@ vim.opt.tabstop = 2 -- tab size in spaces
 vim.opt.softtabstop = 2 -- tab size while editing
 vim.opt.wrap = false -- don't wrap
 vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth'
-vim.opt.fixendofline = false
+
+-- End of Line
+-- https://neovim.io/doc/user/editing.html#_end-of-line-and-end-of-file
+vim.opt.fixendofline = false -- restores <EOL> if missing
 
 -- Interface
 vim.opt.laststatus = 3 -- Only active window has statusline
