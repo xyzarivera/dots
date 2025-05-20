@@ -20,12 +20,12 @@ vim.opt.fixendofline = false -- restores <EOL> if missing
 
 -- Interface
 vim.opt.laststatus = 3 -- Only active window has statusline
+vim.opt.list = true -- show invisible characters/whitespaces 
 vim.opt.listchars:append({ -- visualize whitespace
   lead = "·",
   trail = "·",
   nbsp = "·",
 })
-vim.opt.list = true
 vim.opt.fillchars:append({ -- characters to fill interface
   eob = " ",
 })
@@ -64,4 +64,4 @@ vim.opt.swapfile = false -- disables swap file
 -- Misc
 vim.opt.spell = true -- enables spellcheck
 vim.opt.spelllang = "en,cjk"
-vim.opt.mouse = ""
+vim.opt.mouse = "" -- enable mouse in mode
