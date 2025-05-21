@@ -8,11 +8,12 @@ vim.opt.inccomand = "nosplit"
 
 -- Spaces / Wrapping
 vim.opt.expandtab = true -- tabs into spaces
-vim.opt.shiftwidth = 0 -- autoindent size; 0 to use tabstop value
+vim.opt.autoindent = true -- copy indent from current line when starting a new line
 vim.opt.tabstop = 2 -- tab size in spaces
 vim.opt.softtabstop = 2 -- tab size while editing
-vim.opt.wrap = false -- don't wrap
+vim.opt.shiftwidth = 0 -- autoindent size; 0 to use tabstop value
 vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth'
+vim.opt.wrap = false -- don't wrap
 
 -- End of Line
 -- https://neovim.io/doc/user/editing.html#_end-of-line-and-end-of-file
@@ -39,8 +40,6 @@ vim.opt.relativenumber = true -- shows relative number
 vim.opt.numberwidth = 4 -- line number column width
 vim.opt.showmode = false -- displays mode; not needed with a statusline plugin
 vim.opt.signcolumn = "yes" -- displays sign column
-vim.opt.splitbelow = true -- default horizontal split to bottom
-vim.opt.splitright = true -- default vertical split to right
 vim.opt.startofline = false -- prevent some commands to move cursor at the start of line
 vim.opt.cursorline = true -- highlight current line
 vim.opt.cursorlineopt = "screenline" -- highlight both number and the text line
@@ -48,6 +47,10 @@ vim.opt.title = false -- don't set window title
 vim.opt.visualbell = false -- disable visual bells
 vim.opt.colorcolumn = "80" -- shows colored column at 80th character
 vim.opt.errorbells = false -- disable error bells
+
+-- Window Splitting
+vim.opt.splitbelow = true -- default horizontal split to bottom
+vim.opt.splitright = true -- default vertical split to right
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus" -- sync clipboard with system clipboard, at least on macos
