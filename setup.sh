@@ -10,6 +10,7 @@ files=(
   # ideavimrc
   config/lazygit
   # zshenv
+  # zshrc
 )
 
 for f in $files; do
