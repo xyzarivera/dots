@@ -5,10 +5,12 @@ files=(
   config/alacritty
   config/skhd
   config/nvim
+  gitconfig
   tmux.conf
-  ideavimrc
+  # ideavimrc
   config/lazygit
   # zshenv
+  # zshrc
 )
 
 for f in $files; do

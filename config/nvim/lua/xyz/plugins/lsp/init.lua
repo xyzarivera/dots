@@ -99,28 +99,6 @@ local XYZ_LSP_CONFIG = {
       },
     },
   },
-  volar = {
-    settings = {
-      scss = {
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-      css = {
-        lint = {
-          unknownAtRules = "ignore",
-        },
-      },
-      vue = {
-        inlayHints = {
-          missingProps = true,
-          inlineHandlerLeading = false,
-          optionsWrapper = false,
-          vBindShorthand = false,
-        },
-      },
-    },
-  },
 }
 
 return {
