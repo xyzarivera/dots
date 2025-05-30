@@ -7,7 +7,7 @@ files=(
   config/nvim
   gitconfig
   tmux.conf
-  ideavimrc
+  # ideavimrc
   config/lazygit
   # zshenv
 )
