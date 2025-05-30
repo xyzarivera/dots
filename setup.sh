@@ -5,6 +5,7 @@ files=(
   config/alacritty
   config/skhd
   config/nvim
+  gitconfig
   tmux.conf
   ideavimrc
   config/lazygit
