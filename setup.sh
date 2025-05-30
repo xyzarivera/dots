@@ -13,6 +13,11 @@ files=(
   # zshrc
 )
 
+if [[ ! -d "$HOME/.config" ]]; then
+  echo "$HOME/.config does not exist. Creating now."
+  mkdir -p "$HOME/.config"
+fi
+
 for f in $files; do
   dest="$HOME/.$f"
 
