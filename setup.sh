@@ -16,6 +16,11 @@ files=(
 for f in $files; do
   dest="$HOME/.$f"
 
+  if [[ ! -d "$dest"]]; then
+    echo "Directory $dest does not exist. Creating now."
+    mkdir -p "$dest"
+  fi
+
   # Check if file is a symlink (-L) 
   if [[ -L "$dest" ]]; then
     # we unlink instead of rm -rf to avoid unwanted deletion of actual source
