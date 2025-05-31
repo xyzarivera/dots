@@ -11,6 +11,9 @@ files=(
   # zshrc
   # ideavimrc
   # git-hooks
+)
+
+cpFiles=(
   # gitconfig
   # gitconfig-work
 )
