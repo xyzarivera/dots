@@ -1,0 +1,12 @@
+[user]
+  email = <WORK_EMAIL> 
+  name = Xyza Rivera
+  signingKey = $HOME/.ssh/<WORK_SSH_KEY> 
+[push]
+  autoSetupRemote = true
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
+[core]
+  hooksPath = $HOME/.git-hooks/
