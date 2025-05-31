@@ -10,6 +10,7 @@ files=(
   config/lazygit
   # zshenv
   # zshrc
+  # git-hooks
   # gitconfig
   # gitconfig-work
 )

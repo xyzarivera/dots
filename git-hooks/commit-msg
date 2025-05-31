@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+head $1 | grep -qE '^(feat|fix|improvement|docs|style|refactor|perf|test|build|ci|chore)!?: ' 
+if [ ! $? -eq 0 ] 
+
+# The below extends above to allow optional bodies 
+# head $1 | grep -qE '^(?:(feat|fix|improvement|docs|style|refactor|perf|test|build|ci|chore))(?:(:|\(.*\):)).*$' 
+
+then 
+  echo "Conventional commit must be used:" 
+  echo 
+  echo " feat:		A new feature" 
+  echo " fix:		A bug fix" 
+  echo " improvement:	An improvement to a current feature" 
+  echo " docs:		Documentation only changes" 
+  echo " style:		Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)" 
+  echo " refactor:	A code change that neither fixes a bug nor adds a feature" 
+  echo " perf:		A code change that improves performance" 
+  echo " test:		Adding missing tests or correcting existing tests" 
+  echo " build:		Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)" 
+  echo " ci:		Changes to our CI configuration files and scripts (exampe scopes: Travis, Circle, BrowserStack, SauceLabs)" 
+  echo " chore:		Other changes that don't modify src or test files" 
+  echo 
+  echo " <any>!:		BREAKING CHANGE" 
+  exit 1 
+fi
+
+# TODO: add to setup script
+# make this executable
+# chmod 755 ~/.git-hooks/commit-msg
