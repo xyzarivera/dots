@@ -4,12 +4,12 @@
 files=(
   config/alacritty
   config/skhd
+  config/lazygit
   config/nvim
   tmux.conf
-  # ideavimrc
-  config/lazygit
   # zshenv
   # zshrc
+  # ideavimrc
   # git-hooks
   # gitconfig
   # gitconfig-work
