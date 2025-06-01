@@ -1,5 +1,9 @@
 [user]
 	email = xyzarivera@gmail.com
 	name = Xyza Rivera
+[pull]
+  rebase = true
+[push]
+  default = simple
 ; [includeIf "gitdir/i:~/<work-directory>/"]
 ;     path = ~/.gitconfig-<work-suffix>

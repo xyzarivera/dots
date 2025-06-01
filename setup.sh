@@ -4,13 +4,18 @@
 files=(
   config/alacritty
   config/skhd
-  config/nvim
-  gitconfig
-  tmux.conf
-  # ideavimrc
   config/lazygit
+  config/nvim
+  tmux.conf
   # zshenv
   # zshrc
+  # ideavimrc
+  # git-hooks
+)
+
+cpFiles=(
+  # gitconfig
+  # gitconfig-work
 )
 
 if [[ ! -d "$HOME/.config" ]]; then
