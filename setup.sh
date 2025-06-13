@@ -3,12 +3,13 @@
 # files to symlink
 files=(
   config/alacritty
+  config/zsh
   config/skhd
   config/lazygit
   config/nvim
   tmux.conf
-  # zshenv
-  # zshrc
+  zshenv
+  zshrc
   # ideavimrc
   # git-hooks
 )
