@@ -8,17 +8,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm, without auto-using the default version
 
-
-# PATH
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-# Created by `pipx` on 2025-05-22 02:42:48
-export PATH="$PATH:/Users/xyza.rivera/.local/bin"
+alias assume=". assume"
 
 # Work
 export PATH="$PATH:$HOME/krakenflex/ves/development/scripts/bin"
-
