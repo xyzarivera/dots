@@ -11,4 +11,5 @@ zstyle ':vcs_info:git:*' formats 'on %F{red}%b%f '
 # enable parameter expansion, command substitution and arithmetic expansion
 setopt prompt_subst
 
-PROMPT='%F{blue}%~%f ${vcs_info_msg_0_}%B%(?.%F{blue}>.%F{red}>)%f%b '
+PROMPT='%F{blue}%~%f ${vcs_info_msg_0_}
+%B%(?.%F{blue}>.%F{red}>)%f%b '
