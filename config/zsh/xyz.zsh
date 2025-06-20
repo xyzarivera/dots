@@ -8,7 +8,7 @@ scripts=(
   keybinds.zsh
   misc.zsh
   spectrum.zsh
-  prompt.zsh
+  theme.zsh
 )
 
 for s in $scripts; do
