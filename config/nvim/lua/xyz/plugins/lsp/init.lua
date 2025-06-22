@@ -5,7 +5,7 @@ local lsp = require("xyz.utils.lsp")
 local XYZ_LSP_CONFIG = {
   cssls = {},
   tailwindcss = {
-    filetypes = { "vue", "html", "css", "scss", "tsx" },
+    filetypes = { "vue", "html", "css", "scss", "tsx", "svelte" },
   },
   eslint = {},
   jsonls = { filetypes = { "json", "jsonc" } },
@@ -99,6 +99,7 @@ local XYZ_LSP_CONFIG = {
       },
     },
   },
+  svelte = {},
 }
 
 return {
