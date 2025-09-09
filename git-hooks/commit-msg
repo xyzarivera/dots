@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-head $1 | grep -qE '^(feat|fix|improvement|docs|style|refactor|perf|test|build|ci|chore)!?: ' 
+head $1 | grep -qE '^((feat|fix|improvement|docs|style|refactor|perf|test|build|ci|chore)!?: )|^(fixup! )' 
 if [ ! $? -eq 0 ] 
 
 # The below extends above to allow optional bodies 

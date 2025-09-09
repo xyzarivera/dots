@@ -47,6 +47,7 @@ vim.opt.title = false -- don't set window title
 vim.opt.visualbell = false -- disable visual bells
 vim.opt.colorcolumn = "80" -- shows colored column at 80th character
 vim.opt.errorbells = false -- disable error bells
+vim.opt.scrolloff = 999 -- always set current cursor centered // TODO: use smart scrolloff plugin
 
 -- Window Splitting
 vim.opt.splitbelow = true -- default horizontal split to bottom
