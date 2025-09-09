@@ -37,7 +37,6 @@ lazy.setup({
     require("xyz.plugins.cmp"),
     require("xyz.plugins.lsp"),
     require("xyz.plugins.format"),
-    require("xyz.plugins.hardtime"),
   },
   install = {
     missing = true,
