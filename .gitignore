@@ -2,3 +2,4 @@
 /config/lazygit/*
 !/config/lazygit/config.yml
 /config/zsh/plugins/*
+/config/nvim/lua/xyz/plugins/db/config.lua
