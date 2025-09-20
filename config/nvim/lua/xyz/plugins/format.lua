@@ -8,7 +8,16 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
-        ["*"] = { "codespell", "trim_whitespace" },
+        ["*"] = { "trim_whitespace" },
+        -- disable formatter to let autocmd eslint run instead
+        javascript = {},
+        javascriptreact = {},
+        typescript = {},
+        typescriptreact = {},
+        vue = {},
+        svelte = {},
+        css = { "stylelint" },
+        json = { "fixjson" },
       },
     },
     init = function()
