@@ -27,7 +27,7 @@ lazy.setup({
     require("xyz.plugins.whichkey"),
     require("xyz.plugins.files"),
     require("xyz.plugins.notes"),
-    require("xyz.plugins.telescope"),
+    require("xyz.plugins.snacks"),
     require("xyz.plugins.ime"),
     require("xyz.plugins.lualine"),
     require("xyz.plugins.treesitter"),
