@@ -21,7 +21,7 @@ local XYZ_LSP_CONFIG = {
       Lua = {
         diagnostics = {
           -- Prevents getting Undefined global `vim`
-          globals = { "vim" },
+          globals = { "vim", "Snacks" },
         },
         workspace = {
           -- Help lua_ls be aware of neovim runtime files
