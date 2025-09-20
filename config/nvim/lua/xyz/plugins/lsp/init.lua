@@ -63,11 +63,22 @@ local XYZ_LSP_CONFIG = {
 
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
-      { "nvim-telescope/telescope.nvim" },
+      require("xyz.plugins.snacks"),
+      require("xyz.plugins.cmp"),
     },
     event = {
       "BufReadPost",
@@ -89,7 +100,6 @@ return {
         automatic_installation = true,
       })
 
-      local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
       local get_mason_servers = require("mason-lspconfig").get_installed_servers
 
       vim.diagnostic.config({ virtual_text = true })
@@ -99,9 +109,11 @@ return {
 
         vim.lsp.config(
           server_name,
-          vim.tbl_deep_extend("force", {
-            capabilities = lsp_capabilities,
-          }, xyz_lsp_config)
+          vim.tbl_deep_extend("force", xyz_lsp_config, {
+            capabilities = require("blink.cmp").get_lsp_capabilities(
+              xyz_lsp_config.capabilities
+            ),
+          })
         )
       end
 

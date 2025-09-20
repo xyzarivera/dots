@@ -26,7 +26,6 @@ lazy.setup({
     require("xyz.plugins.git"),
     require("xyz.plugins.whichkey"),
     require("xyz.plugins.files"),
-    require("xyz.plugins.notes"),
     require("xyz.plugins.snacks"),
     require("xyz.plugins.ime"),
     require("xyz.plugins.lualine"),
@@ -37,6 +36,7 @@ lazy.setup({
     require("xyz.plugins.cmp"),
     require("xyz.plugins.lsp"),
     require("xyz.plugins.format"),
+    require("xyz.plugins.db"),
   },
   install = {
     missing = true,
