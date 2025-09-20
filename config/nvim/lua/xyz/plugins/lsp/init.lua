@@ -42,59 +42,18 @@ local XYZ_LSP_CONFIG = {
       },
     },
   },
-  ts_ls = {
-    before_init = function(_, config)
-      table.insert(config.init_options.plugins, {
-        name = "@vue/typescript-plugin",
-        languages = { "vue" },
-        location = vim.fn.expand(
-          "$MASON/packages/vue-language-server/node_modules/@vue/language-server"
-        ),
-      })
-    end,
-    init_options = {
-      plugins = {},
-    },
-    filetypes = {
-      "typescript",
-      "javascript",
-      "javascriptreact",
-      "typescriptreact",
-      "vue",
-    },
-    commands = {
-      OrganizeImports = {
-        function()
-          Client:exec_cmd({
-            command = "_typescript.organizeImports",
-            arguments = { vim.api.nvim_buf_get_name(0) },
-            title = "",
-          })
-        end,
-        description = "Organize Imports",
-      },
-    },
+  vtsls = {
     settings = {
       javascript = {
-        inlayHints = {
-          includeInlayEnumMemberValueHints = true,
-          includeInlayFunctionLikeReturnTypeHints = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayVariableTypeHints = false,
-        },
+        format = { enable = false },
+        referencesCodeLens = { enabled = false },
       },
       typescript = {
-        inlayHints = {
-          includeInlayEnumMemberValueHints = true,
-          includeInlayFunctionLikeReturnTypeHints = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all';
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayVariableTypeHints = false,
+        format = { enable = false },
+        referencesCodeLens = { enabled = false },
+        implementationsCodeLens = { enabled = false },
+        preferences = {
+          includePackageJsonAutoImports = "off",
         },
       },
     },
