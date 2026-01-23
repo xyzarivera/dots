@@ -118,22 +118,46 @@ return {
       end
 
       local function setup_keybindings(args)
-        keybind.set("n", "<leader>cli", "<cmd>LspInfo<CR>", "LSP: Info")
-        keybind.set("n", "<leader>clr", "<cmd>LspRestart<CR>", "LSP: Restart")
+        keybind.set("n",
+          "<leader>cli",
+          "<cmd>LspInfo<CR>",
+          "LSP: Info"
+        )
+
+        keybind.set(
+          "n",
+          "<leader>clr",
+          "<cmd>LspRestart<CR>",
+          "LSP: Restart"
+        )
 
         keybind.set(
           "n",
           "gD",
-          vim.lsp.buf.declaration,
+          function()
+            Snacks.picker.lsp_declarations()
+          end,
           "LSP: Goto declaration",
           { buffer = args.buf }
         )
-        keybind.set("n", "gI", function()
-          require("telescope.builtin").lsp_implementations({ reuse_win = true })
-        end, "LSP: Goto Implementation")
-        keybind.set("n", "gy", function()
-          require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-        end, "LSP: Goto Type Definition")
+
+        keybind.set(
+          "n",
+          "gI",
+          function()
+            Snacks.picker.lsp_implementations()
+          end,
+          "LSP: Goto Implementation"
+        )
+
+        keybind.set(
+          "n",
+          "gy",
+          function()
+            Snacks.picker.lsp_type_definitions()
+          end,
+          "LSP: Goto Type Definition"
+        )
 
         keybind.set(
           "n",
@@ -144,18 +168,29 @@ return {
         )
 
         if lsp.supports("textDocument/definition", args.buf) then
-          keybind.set("n", "gd", function()
-            require("telescope.builtin").lsp_definitions({ reuse_win = true })
-          end, "LSP: Goto definition", { buffer = args.buf })
+          keybind.set(
+            "n",
+            "gd",
+            function()
+            Snacks.picker.lsp_definitions()
+            end,
+            "LSP: Goto definition",
+            { buffer = args.buf }
+          )
         end
 
         if lsp.supports("textDocument/References", args.buf) then
           keybind.set(
             "n",
             "gr",
-            "<cmd>Telescope lsp_references<CR>",
+            function()
+              Snacks.picker.lsp_references()
+            end,
             "LSP: Find Usages",
-            { buffer = args.buf }
+            {
+              buffer = args.buf,
+              nowait = true,
+            }
           )
         end
 
@@ -167,6 +202,7 @@ return {
             "LSP: Signature Help",
             { buffer = args.buf }
           )
+
           keybind.set(
             "i",
             "<C-k>",
@@ -185,11 +221,17 @@ return {
             { buffer = args.buf }
           )
 
-          keybind.set("n", "<leader>cA", function()
-            vim.lsp.buf.code_action({
-              context = { only = { "source" }, diagnostics = {} },
-            })
-          end, "LSP: Source Action", { buffer = args.buf })
+          keybind.set(
+            "n",
+            "<leader>cA",
+            function()
+              vim.lsp.buf.code_action({
+                context = { only = { "source" }, diagnostics = {} },
+              })
+            end,
+            "LSP: Source Action",
+            { buffer = args.buf }
+          )
         end
 
         if lsp.supports("textDocument/rename", args.buf) then
@@ -228,7 +270,6 @@ return {
           then
             vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
           end
-
           setup_keybindings(args)
         end,
       })
