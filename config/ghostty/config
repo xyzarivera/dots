@@ -1,0 +1,11 @@
+shell-integration = zsh
+
+# theme
+theme = TokyoNight Storm
+
+#font
+font-size = 16
+
+# window
+window-decoration = none
+macos-titlebar-style = hidden
