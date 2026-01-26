@@ -3,6 +3,7 @@
 # files to symlink
 files=(
   config/alacritty
+  config/ghostty
   config/zsh
   config/skhd
   config/lazygit
