@@ -1,5 +1,8 @@
 shell-integration = zsh
 
+# keybinds
+keybind = clear
+
 # theme
 theme = TokyoNight Storm
 
