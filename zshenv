@@ -16,4 +16,4 @@ export PATH="$PATH:/Users/xyza.rivera/.local/bin"
 
 # Work
 export PATH="$PATH:$HOME/krakenflex/ves/development/scripts/bin"
-
+# export DBT_ACCESS_TOKEN=
