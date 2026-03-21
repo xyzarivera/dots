@@ -42,3 +42,16 @@ _G.xyz.new_autocmd(
   end,
   "Smart scroll offset"
 )
+
+_G.xyz.new_autocmd(
+  "TermOpen",
+  { "term://*" },
+  function()
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+    vim.wo.wrap = true
+    vim.wo.spell = false
+    vim.cmd("startinsert")
+  end,
+  "Setup Terminal in buffer"
+)

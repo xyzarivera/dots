@@ -90,3 +90,6 @@ _G.xyz.keybind_set("n", "<leader><tab>]", "<cmd>tabnext<cr>", "Next Tab")
 _G.xyz.keybind_set("n", "<leader><tab>d", "<cmd>tabclose<cr>", "Close Tab")
 _G.xyz.keybind_set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", "Previous Tab")
 
+-- terminal
+_G.xyz.keybind_set("n", "<C-Space>", ":term<CR>", "Open terminal")
+_G.xyz.keybind_set("t", "<C-\\><C-\\>", "<C-\\><C-n>", "Alternative Terminal Exit")
