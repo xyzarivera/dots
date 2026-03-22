@@ -36,7 +36,7 @@ xyz.deferred_packadd = function(specs,opts)
 
   vim.pack.add(
     specs,
-  vim.tbl_deep_extend("force", {
+    vim.tbl_deep_extend("force", {
       load = function(plug_data)
         table.insert(deffered_spec_names, plug_data.spec.name)
       end,
