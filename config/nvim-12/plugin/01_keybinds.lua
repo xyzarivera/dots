@@ -1,5 +1,3 @@
-_G.xyz.keybind_set()
-
 _G.xyz.keybind_set("", "<leader>ve", ":edit $MYVIMRC<CR>", "Edit Neovim Config")
 _G.xyz.keybind_set("", "<leader>vs", ":source $MYVIMRC<CR>", "Reload Neovim Config")
 -- _G.xyz.keybind_set("n", "q", "<NOP>", "Disable macro recording")

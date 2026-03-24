@@ -12,11 +12,12 @@ setup_deferred(function ()
   require("mini.comment").setup()
   require("mini.pairs").setup()
 
--- emacs bindings
-  require("emacs-bindings").setup()
 
 -- ime
-  require("im-select").setup({
+  require("im_select").setup({
     default_im_select = "com.apple.inputmethod.Kotoeri.RomajiTyping.Roman",
+    set_previous_events = {},
+    async_switch_im = false,
+    default_command = { "macism" },
   })
 end)

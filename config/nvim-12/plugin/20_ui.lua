@@ -99,7 +99,7 @@ local setup_deferred = _G.xyz.deferred_packadd({
 
 setup_deferred(function()
 -- colorizer
-  require("nvim-colorizer").setup({
+  require("colorizer").setup({
         RGB = true,
         RRGGBB = true,
         names = false,
