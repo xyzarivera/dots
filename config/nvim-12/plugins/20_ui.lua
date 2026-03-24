@@ -90,3 +90,18 @@ require("lualine").setup({
     },
   },
 })
+
+-- deferred
+
+local setup_deferred = _G.xyz.deferred_packadd({
+  _G.xyz.gh("norcalli/nvim-colorizer.lua"),
+})
+
+setup_deferred(function()
+-- colorizer
+  require("nvim-colorizer").setup({
+        RGB = true,
+        RRGGBB = true,
+        names = false,
+  })
+end)
