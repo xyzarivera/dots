@@ -1,3 +1,9 @@
+vim.g.mapleader = " "
+
+-- Eagerly disable netrw (built in file explorer)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Searching
 vim.opt.ignorecase = true -- case-insensitive search
 vim.opt.smartcase = false -- strict case-insensitive search even with upper ccase

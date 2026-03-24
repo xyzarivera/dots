@@ -8,6 +8,7 @@ files=(
   config/skhd
   config/lazygit
   config/nvim
+  config/nvim-12
   tmux.conf
   zshenv
   zshrc
