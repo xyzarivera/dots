@@ -3,7 +3,8 @@ vim.pack.add({
     src = _G.xyz.gh("folke/tokyonight.nvim"),
     name = "tokyonight",
   },
-  _G.xyz.gh("folke/which-key.nvim")
+  _G.xyz.gh("folke/which-key.nvim"),
+  _G.xyz.gh("stevearc/oil.nvim")
 })
 
 -- colorscheme
@@ -36,3 +37,12 @@ wk.add({
     { "g", group = "goto" },
   },
 })
+
+-- oil
+require("oil").setup({
+  view_options = {
+    show_hidden = true
+  }
+})
+
+_G.xyz.keybind_set("n", "<leader>e", "<CMD>Oil<CR>", "File Explorer")
