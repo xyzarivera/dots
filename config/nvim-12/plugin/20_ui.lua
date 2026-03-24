@@ -94,14 +94,37 @@ require("lualine").setup({
 -- deferred
 
 local setup_deferred = _G.xyz.deferred_packadd({
-  _G.xyz.gh("norcalli/nvim-colorizer.lua"),
+  _G.xyz.gh("catgoose/nvim-colorizer.lua"),
 })
 
 setup_deferred(function()
 -- colorizer
   require("colorizer").setup({
-        RGB = true,
-        RRGGBB = true,
-        names = false,
+    -- Don't auto enable by filetype
+    filetypes = {},
+    options = {
+      parsers = {
+        css = true,
+        css_fn = true,
+        names = {
+          enabled = false,
+        },
+        hex = {
+          enabled = true,
+          rgb = true,
+          rrggbb = true,
+        },
+        tailwind = {
+          enabled = true,
+          lsp = true,
+        },
+      },
+      display = {
+        mode = "virtualtext",
+        virtualtext = {
+          position = "after",
+        },
+      },
+    },
   })
 end)
