@@ -39,7 +39,7 @@ wk.add({
   },
 })
 
--- oil
+-- file explorer: oil
 require("oil").setup({
   view_options = {
     show_hidden = true
