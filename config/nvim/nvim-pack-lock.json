@@ -78,6 +78,11 @@
       "rev": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "nvim-colorizer.lua": {
+      "rev": "85a5e83cd4daa258cf95c3204e277991d6fbe747",
+      "src": "https://github.com/catgoose/nvim-colorizer.lua",
+      "version": "'85a5e83cd4daa258cf95c3204e277991d6fbe747'"
+    },
     "nvim-lspconfig": {
       "rev": "841c6d4139aedb8a3f2baf30cef5327371385b93",
       "src": "https://github.com/neovim/nvim-lspconfig"

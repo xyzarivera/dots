@@ -5,7 +5,7 @@ vim.pack.add({
   },
   _G.xyz.gh("folke/which-key.nvim"),
   _G.xyz.gh("stevearc/oil.nvim"),
-  _G.xyz.gh("nvim-lualine/lualine.nvim")
+  _G.xyz.gh("nvim-lualine/lualine.nvim"),
 })
 
 -- colorscheme
@@ -42,8 +42,8 @@ wk.add({
 -- file explorer: oil
 require("oil").setup({
   view_options = {
-    show_hidden = true
-  }
+    show_hidden = true,
+  },
 })
 
 _G.xyz.keybind_set("n", "<leader>e", "<CMD>Oil<CR>", "File Explorer")
@@ -94,11 +94,15 @@ require("lualine").setup({
 -- deferred
 
 local setup_deferred = _G.xyz.deferred_packadd({
-  _G.xyz.gh("catgoose/nvim-colorizer.lua"),
+  {
+    src = _G.xyz.gh("catgoose/nvim-colorizer.lua"),
+    -- FIXME: latest main has issues with git submodules
+    version = "85a5e83cd4daa258cf95c3204e277991d6fbe747",
+  },
 })
 
 setup_deferred(function()
--- colorizer
+  -- colorizer
   require("colorizer").setup({
     -- Don't auto enable by filetype
     filetypes = {},
