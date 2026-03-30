@@ -66,14 +66,32 @@ _G.xyz.keybind_set("n", "<leader>xl", "<cmd>lopen<cr>", "Location List")
 _G.xyz.keybind_set("n", "<leader>xq", "<cmd>copen<cr>", "Quickfix List")
 
 -- diagnostics
+local open_diagnostic_virtual_line = function()
+  vim.diagnostic.config({
+    virtual_lines = { current_line = true },
+    virtual_text = false,
+  })
+  _G.xyz.new_autocmd("CursorMoved", "*", function()
+    vim.diagnostic.config(_G.xyz.diagnostic_base_options)
+  end, "Reset diagnostic config", true)
+end
+
 local diagnostic_goto = function(next, severity)
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
-    vim.diagnostic.jump({count = next and 1 or -1, severity = severity})
+    vim.diagnostic.jump({ count = next and 1 or -1, severity = severity })
+    vim.schedule(function()
+      open_diagnostic_virtual_line()
+    end)
   end
 end
 
-_G.xyz.keybind_set("n", "<leader>cd", vim.diagnostic.open_float, "View Line Diagnostics")
+_G.xyz.keybind_set(
+  "n",
+  "<leader>cd",
+  open_diagnostic_virtual_line,
+  "View Line Diagnostics"
+)
 _G.xyz.keybind_set("n", "]d", diagnostic_goto(true), "Next Diagnostic")
 _G.xyz.keybind_set("n", "[d", diagnostic_goto(false), "Prev Diagnostic")
 _G.xyz.keybind_set("n", "]e", diagnostic_goto(true, "ERROR"), "Next Error")
