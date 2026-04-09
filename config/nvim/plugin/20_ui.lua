@@ -89,45 +89,23 @@ lspProgress.setup({
 })
 
 -- lualine
-require("lualine").setup({
+local lualine = require("lualine")
+lualine.setup({
   options = {
     component_separators = "",
     section_separators = "",
   },
   sections = {
-    lualine_b = { "diagnostics" },
-    lualine_c = {
-      { "filename", path = 3 },
+    lualine_b = { "branch" },
+    lualine_c = { "filename", path = 3 },
+    lualine_x = {},
+    lualine_y = {
+      function()
+        return lspProgress.progress()
+      end,
+      "filetype",
     },
-    -- FIX: lsp and filetype not showing
-    lualine_x = {
-      "branch",
-      {
-        function()
-          local buf_ft = vim.bo[0].filetype
-          local clients = vim.lsp.get_client()
-
-          if next(clients) == nil then
-            return buf_ft
-          end
-
-          local active_lsp = {}
-          for _, client in ipairs(clients) do
-            local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-              table.insert(active_lsp, client.name)
-            end
-          end
-
-          if #active_lsp == 0 then
-            return buf_ft
-          end
-
-          return buf_ft .. ": " .. table.concat(active_lsp, ", ")
-        end,
-        icon = "",
-      },
-    },
+    lualine_z = {"progress"}
   },
 })
 
