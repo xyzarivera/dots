@@ -67,3 +67,26 @@ vim.opt.swapfile = false -- disables swap file
 vim.opt.spell = true -- enables spellcheck
 vim.opt.spelllang = "en,cjk"
 vim.opt.mouse = ""
+
+_G.xyz.diagnostic_base_options = {
+  -- Show signs on top of any other sign, but only for warnings and errors
+  signs = { priority = 9999, severity = { min = "WARN", max = "ERROR" } },
+
+  -- Show all diagnostics as underline (for their meessages type `<Leader>ld`)
+  underline = { severity = { min = "HINT", max = "ERROR" } },
+
+  -- Show more details immediately only for errors at current line end
+  virtual_lines = false,
+  virtual_text = {
+    current_line = true,
+    severity = { min = "ERROR", max = "ERROR" },
+  },
+
+  -- Don't update diagnostics when typing
+  update_in_insert = false,
+}
+
+-- Defer to avoid sourcing `vim.diagnostic` on startup
+vim.schedule(function()
+  vim.diagnostic.config(_G.xyz.diagnostic_base_options)
+end)
