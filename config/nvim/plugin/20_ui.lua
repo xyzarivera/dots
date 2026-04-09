@@ -6,6 +6,7 @@ vim.pack.add({
   _G.xyz.gh("folke/which-key.nvim"),
   _G.xyz.gh("stevearc/oil.nvim"),
   _G.xyz.gh("nvim-lualine/lualine.nvim"),
+  _G.xyz.gh("linrongbin16/lsp-progress.nvim"),
 })
 
 -- colorscheme
@@ -48,46 +49,63 @@ require("oil").setup({
 
 _G.xyz.keybind_set("n", "<leader>e", "<CMD>Oil<CR>", "File Explorer")
 
+-- lsp progress
+local lspProgress = require("lsp-progress")
+lspProgress.setup({
+  client_format = function(client_name, spinner)
+    return {
+      name = client_name,
+      body = spinner,
+    }
+  end,
+  format = function(client_messages)
+    local active_clients = {}
+    for _, msg in ipairs(client_messages) do
+      active_clients[msg.name] = msg.body
+    end
+
+    local all_clients = vim.lsp.get_clients()
+    if #all_clients == 0 then
+      return ""
+    end
+
+    table.sort(all_clients, function(a, b)
+      return a.name < b.name
+    end)
+
+    local builder = {}
+    for _, client in ipairs(all_clients) do
+      local spinner = active_clients[client.name]
+      if spinner and spinner ~= "" then
+        table.insert(builder, string.format("%s %s", client.name, spinner))
+      else
+        table.insert(builder, client.name)
+      end
+    end
+
+    local sign = "" -- nf-fa-gear
+    return sign .. " " .. table.concat(builder, ", ")
+  end,
+})
+
 -- lualine
-require("lualine").setup({
+local lualine = require("lualine")
+lualine.setup({
   options = {
     component_separators = "",
     section_separators = "",
   },
   sections = {
-    lualine_b = { "diagnostics" },
-    lualine_c = {
-      { "filename", path = 3 },
+    lualine_b = { "branch" },
+    lualine_c = { "filename", path = 3 },
+    lualine_x = {},
+    lualine_y = {
+      function()
+        return lspProgress.progress()
+      end,
+      "filetype",
     },
-    -- FIX: lsp and filetype not showing
-    lualine_x = {
-      "branch",
-      {
-        function()
-          local buf_ft = vim.bo[0].filetype
-          local clients = vim.lsp.get_client()
-
-          if next(clients) == nil then
-            return buf_ft
-          end
-
-          local active_lsp = {}
-          for _, client in ipairs(clients) do
-            local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-              table.insert(active_lsp, client.name)
-            end
-          end
-
-          if #active_lsp == 0 then
-            return buf_ft
-          end
-
-          return buf_ft .. ": " .. table.concat(active_lsp, ", ")
-        end,
-        icon = "",
-      },
-    },
+    lualine_z = {"progress"}
   },
 })
 
