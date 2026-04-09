@@ -2,6 +2,7 @@ tap "common-fate/granted"
 tap "jesseduffield/lazydocker"
 tap "jesseduffield/lazygit"
 tap "koekeishiya/formulae"
+tap "laishulu/homebrew"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # General-purpose data compression with high compression ratio
@@ -18,6 +19,8 @@ brew "coreutils"
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # GitHub command-line tool
 brew "gh"
 # Library and utilities for processing GIFs
@@ -58,6 +61,8 @@ brew "tcl-tk@8"
 brew "tfenv"
 # Terminal multiplexer
 brew "tmux"
+# Parser generator tool
+brew "tree-sitter-cli"
 # General-purpose lossless data-compression library
 brew "zlib"
 # UNIX shell (command interpreter)
@@ -70,6 +75,8 @@ brew "common-fate/granted/granted"
 brew "jesseduffield/lazydocker/lazydocker"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
+# macOS Input Source Manager
+brew "laishulu/homebrew/macism"
 # GPU-accelerated terminal emulator
 cask "alacritty"
 # Open source IDE for exploring and testing APIs
