@@ -2,6 +2,7 @@ shell-integration = zsh
 
 # keybinds
 # keybind = clear
+macos-option-as-alt = true
 
 # theme
 theme = TokyoNight Storm
@@ -17,3 +18,4 @@ window-padding-y = 10
 
 window-width = 160
 window-height = 45
+
