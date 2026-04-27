@@ -97,7 +97,9 @@ lualine.setup({
   },
   sections = {
     lualine_b = { "branch" },
-    lualine_c = { "filename", path = 3 },
+    lualine_c = {
+      {"filename", path = 3}
+    } ,
     lualine_x = {},
     lualine_y = {
       function()

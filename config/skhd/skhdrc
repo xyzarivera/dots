@@ -2,6 +2,6 @@
   "DaVinci Resolve"
 ]
 
-cmd + ctrl - t : open -a /Applications/Alacritty.app
+cmd + ctrl - t : open -a /Applications/Ghostty.app
 cmd + ctrl - g : open -a /Applications/Google\ Chrome.app
-cmd + ctrl - b : open -a /Applications/Ghostty.app
+cmd + ctrl - b : open -a /Applications/Slack.app/
