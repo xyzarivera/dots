@@ -19,3 +19,5 @@ window-padding-y = 10
 window-width = 160
 window-height = 45
 
+# shader
+custom-shader = shaders/cursor_warp.glsl
