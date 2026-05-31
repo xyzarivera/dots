@@ -43,6 +43,8 @@ brew "pango"
 brew "librsvg"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # Python version management
@@ -61,6 +63,8 @@ brew "tcl-tk@8"
 brew "tfenv"
 # Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Parser generator tool
 brew "tree-sitter-cli"
 # General-purpose lossless data-compression library
@@ -86,17 +90,20 @@ cask "discord"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Agent-centric IDE with spec-driven development
+cask "kiro"
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Collaboration platform for API development
 cask "postman"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Music streaming service
 cask "spotify"
 # Open-source code editor
 cask "visual-studio-code"
-vscode "cedar-policy.vscode-cedar"
 vscode "databricks.databricks"
 vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
@@ -116,6 +123,7 @@ vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "redhat.java"
 vscode "redhat.vscode-yaml"
+vscode "vitest.explorer"
 vscode "vscjava.vscode-gradle"
 vscode "vscjava.vscode-java-debug"
 vscode "vscjava.vscode-java-dependency"
@@ -123,3 +131,5 @@ vscode "vscjava.vscode-java-pack"
 vscode "vscjava.vscode-java-test"
 vscode "vscjava.vscode-maven"
 vscode "vscodevim.vim"
+vscode "wizcloud.wiz-vscode"
+npm "@upside/iam-cli"
