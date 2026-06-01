@@ -7,6 +7,7 @@ vim.pack.add({
   _G.xyz.gh("stevearc/oil.nvim"),
   _G.xyz.gh("nvim-lualine/lualine.nvim"),
   _G.xyz.gh("linrongbin16/lsp-progress.nvim"),
+  _G.xyz.gh("nemanjamalesija/ts-expand-hover.nvim"),
 })
 
 -- colorscheme
@@ -110,6 +111,28 @@ lualine.setup({
     lualine_z = {"progress"}
   },
 })
+
+-- typescript hover
+require("ts_expand_hover").setup({
+  -- keymaps = { hover = false },
+  keymaps = { hover = "<leader>ct" },
+})
+
+-- TODO: fix autocmd
+-- TypeScript-only mapping to avoid conflicts with other plugins that map K
+-- _G.xyz.new_autocmd(
+--   "FileType",
+--   { "*.ts", "*.tsx", "*.vue", "*.svelte" },
+--   function(ev)
+--     _G.xyz.keybind_set("n", "K", require("ts_expand_hover").hover, {
+--       buffer = ev.buf,
+--       desc = "TypeScript expandable hover",
+--   }, {
+--     noremap = false
+--   })
+--   end,
+--   "TypeScript expandable hover"
+-- )
 
 -- deferred
 
