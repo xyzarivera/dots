@@ -76,6 +76,6 @@ local setup_deferred = _G.xyz.deferred_packadd({
 
 
   -- gitlinker - generate shareable file permalinks with line ranges
-  require("gitlinker")
+  require("gitlinker").setup()
 end
 )
