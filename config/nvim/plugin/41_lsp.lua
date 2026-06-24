@@ -70,6 +70,7 @@ setup_deferred(function()
       "lua_ls",
       "vtsls",
       "vue_ls",
+      -- "prettier", NOT A LSP SERVER, but dont forget to install it
     },
     automatic_installation = true,
   })
@@ -230,12 +231,12 @@ setup_deferred(function()
       css = { "stylelint" },
       json = { "fixjson" },
       -- disable formatter to let autocmd eslint run instead
-      javascript = {},
-      javascriptreact = {},
-      typescript = {},
-      typescriptreact = {},
-      vue = {},
-      svelte = {},
+      javascript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescript = { "prettier" },
+      typescriptreact = { "prettier" },
+      vue = {  "prettier" },
+      svelte = { "prettier" },
     },
     format_on_save = {
       lsp_format = "fallback",
