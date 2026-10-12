@@ -44,53 +44,20 @@ for symF in $symFiles; do
 done
 
 
-echo "( • ̀ω•́ )✧ copying normal files"
+# echo "( • ̀ω•́ )✧ copying normal files"
 # files to copy once only
 cpFiles=(
   gitconfig
   gitconfig-work-template
 )
 
-for cpF in $cpFiles; do
-  dest="$HOME/.$cpF"
-
-  if [[ ! -f "$dest" && ! -d "$dest" ]]; then
-    echo "(｡- .•) $dest does not exist. Copying now."
-    cp "$PWD/$cpF" "$dest"
-  fi
-done
-
-echo "( • ̀ω•́ )✧ symlinking ai config files"
-
-sharedAiConfig=(
-  skills
-)
-
-aiConfigPaths=(
-  kiro
-  claude
-)
-
-for configPath in $aiConfigPaths; do
-  for config in $sharedAiConfig; do
-    dest="$HOME/.$configPath/$config"
-
-    # Check if file is a symlink (-L)
-    if [[ -L "$dest" ]]; then
-      # we unlink instead of rm -rf to avoid unwanted deletion of actual source
-      # unlink is "deletion" equivalent of symlink file
-      unlink "$dest"
-
-      # -f checks if file
-      # -d if directory
-    elif [[ -f "$dest" || -d "$dest" ]]; then
-      echo "( ˶°ㅁ°) !! Failed to symlink $dest; Non symlinked file/dir exists"
-      continue
-    fi
-
-    # create a symbolic (-s) link (ln)
-    ln -s "$PWD/ai/$config" "$dest"
-  done
-done
+# for cpF in $cpFiles; do
+#   dest="$HOME/.$cpF"
+#
+#   if [[ ! -f "$dest" && ! -d "$dest" ]]; then
+#     echo "(｡- .•) $dest does not exist. Copying now."
+#     cp "$PWD/$cpF" "$dest"
+#   fi
+# done
 
 echo "(づ ᴗ _ᴗ)づ DONE"

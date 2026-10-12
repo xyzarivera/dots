@@ -2,7 +2,7 @@ source "$XYZ_ZSH_CONFIG/xyz.zsh"
 
 export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 
-# pyenv 
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -22,4 +22,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export GRADLE_HOME="$HOME/.sdkman/candidates/gradle/current"
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

@@ -16,7 +16,7 @@ vim.opt.expandtab = true -- tabs into spaces
 vim.opt.shiftwidth = 0 -- autoindent size; 0 to use tabstop value
 vim.opt.tabstop = 2 -- tab size in spaces
 vim.opt.softtabstop = 2 -- tab size while editing
-vim.opt.wrap = false -- don't wrap
+vim.opt.wrap = true -- wrap
 vim.opt.shiftround = true -- round indent to multiple of 'shiftwidth'
 vim.opt.fixendofline = false
 
