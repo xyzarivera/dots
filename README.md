@@ -29,3 +29,13 @@ brew bundle --file=Brewfile
 ./setup
 ```
 
+## TODOs
+
+### opencode
+
+- [ ] configure [models](https://opencode.ai/v2/docs/models)
+- [ ] configure [permissions](https://opencode.ai/v2/docs/permissions)
+- [ ] configure [agents](https://opencode.ai/v2/docs/agents)
+- [ ] configure [policies](https://opencode.ai/v2/docs/policies)
+- [ ] check [snapshots](https://opencode.ai/v2/docs/config/#snapshots)
+
