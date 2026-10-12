@@ -1,0 +1,97 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "shell": "/bin/zsh",
+  "update": "notify",
+  "share": "manual",
+  "formatter": false,
+  "snapshot": false,
+  "disabled_providers": ["opencode"],
+  "provider": {
+    "litellm": {
+      "name": "Anthropic (LiteLLM)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "{env:LITELLM_API_URL}",
+        "apiKey": "{env:LITELLM_API_KEY}"
+      },
+      "models": {
+        "claude-low-carbon-apac-opus-5": {
+          "name": "Claude Low Carbon APAC Opus"
+        },
+        "claude-low-carbon-apac-sonnet-5": {
+          "name": "Claude Low Carbon APAC Sonnet"
+        },
+        "claude-low-carbon-apac-haiku": {
+          "name": "Claude Low Carbon APAC Haiku"
+        }
+      }
+    },
+    "openai": {
+      "name": "OpenAI (LiteLLM)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "{env:LITELLM_API_URL}",
+        "apiKey": "{env:LITELLM_API_KEY}"
+      }
+    }
+  },
+  "model": "litellm/claude-low-carbon-apac-sonnet-5",
+  "small_model": "litellm/claude-low-carbon-apac-haiku",
+  "mcp": {
+    "alfredo-mcp": {
+      "type": "remote",
+      "url": "{env:KTL_MCP_URL}/alfredo"
+    },
+    "asana": {
+      "enabled": true,
+      "type": "remote",
+      "url": "{env:KTL_MCP_URL}/asana",
+      "disabledTools": [
+        "create_project_preview",
+        "create_project_preview_v2",
+        "create_project_confirm",
+        "create_project_confirm_populate",
+        "save_project_changes_confirm",
+        "create_task_preview",
+        "create_task_preview_v2",
+        "create_task_preview_v3",
+        "log_widget_event",
+        "delete_task",
+        "create_project",
+        "create_project_status_update"
+      ]
+    },
+    "kraken-flex-notion": {
+      "enabled": true,
+      "type": "remote",
+      "url": "{env:KTL_MCP_URL}/notion",
+    },
+    "slack": {
+      "enabled": true,
+      "type": "remote",
+      "url": "{env:KTL_MCP_URL}/slack",
+    },
+    "kraken-tech-notion": {
+      "enabled": false,
+      "type": "remote",
+      "url": "{env:KTL_MCP_URL}/notion",
+    },
+  },
+  "permissions": [
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "ask",
+    },
+    {
+      "action": "shell",
+      "resource": "git *",
+      "effect": "ask",
+    },
+    {
+      "action": "shell",
+      "resource": "ls *",
+      "effect": "allow",
+    },
+  ],
+}
