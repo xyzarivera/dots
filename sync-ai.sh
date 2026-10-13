@@ -4,6 +4,8 @@ echo "( • ̀ω•́ )✧ symlinking ai config files"
 # files to symlink
 symFiles=(
   config/opencode/opencode.jsonc
+  config/opencode/agents
+  config/opencode/skills
 )
 
 for symF in $symFiles; do

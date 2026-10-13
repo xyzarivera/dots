@@ -6,6 +6,7 @@
   "formatter": false,
   "snapshot": false,
   "disabled_providers": ["opencode"],
+  "default_agent": "ask",
   "provider": {
     "litellm": {
       "name": "Anthropic (LiteLLM)",
