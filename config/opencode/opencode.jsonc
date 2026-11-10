@@ -8,7 +8,7 @@
   "disabled_providers": ["opencode"],
   "default_agent": "ask",
   "provider": {
-    "litellm": {
+    "anthropic-litellm": {
       "name": "Anthropic (LiteLLM)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
@@ -27,17 +27,28 @@
         }
       }
     },
-    "openai": {
+    "openai-litellm": {
       "name": "OpenAI (LiteLLM)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "{env:LITELLM_API_URL}",
         "apiKey": "{env:LITELLM_API_KEY}"
+      },
+      "models": {
+        "gpt-6.1-sol": {
+          "name": "GPT 6.1 Sol"
+        },
+        "gpt-6.1-terra": {
+          "name": "GPT 6.1 Terra"
+        },
+        "gpt-6.1-luna": {
+          "name": "GPT 6.1 Luna"
+        }
       }
     }
   },
-  "model": "litellm/claude-low-carbon-apac-sonnet-5",
-  "small_model": "litellm/claude-low-carbon-apac-haiku",
+  "model": "openai-litellm/gpt-6.1-sol",
+  "small_model": "openai-litellm/gpt-6.1-terra",
   "mcp": {
     "alfredo-mcp": {
       "type": "remote",
