@@ -9,33 +9,41 @@ handle with care
 | 🖥️ **ghostty** | gpu-accelerated terminal with custom shaders |
 | 🦎 **alacritty** | backup terminal, tokyonight themed |
 | ✏️ **neovim** | the editor. lsp, treesitter, snacks, the works |
-| 🐚 **zsh** | shell config with fast-syntax-highlighting |
-| ⌨️ **skhd** | hotkey daemon for macos window management |
+| 🐚 **zsh** | syntax highlighting, autosuggestions, and completions |
+| ⌨️ **skhd** | macos hotkeys for launching apps |
 | 😴 **lazygit** | git tui config |
+| 🪟 **tmux** | vim-style navigation, plugins, and session persistence |
+| 🤖 **opencode** | LiteLLM providers, MCP servers, agents, and skills |
+| 📝 **ideavim** | vim bindings for JetBrains IDEs; manual setup |
+| 🌿 **git** | personal/work config templates and a commit-message hook; manual setup |
 
 ## vibes
 
-- **theme:** tokyonight (night/moon) 🌙
+- **theme:** tokyonight (night/moon/storm) 🌙
 - **font:** jetbrains mono nerd font
 - **philosophy:** minimal, fast, keyboard-driven
 
 ## setup
 
 ```bash
-# install everything
+# run from the repository root on macos, with Homebrew installed
+# install packages, apps, and VS Code extensions listed in Brewfile
 brew bundle --file=Brewfile
 
-# symlink configs to ~/.config
-./setup
+# symlink terminal, editor, and shell configs
+./setup.sh
+
+# symlink opencode config, instructions, agents, and skills
+mkdir -p ~/.config/opencode
+./sync-ai.sh
 ```
 
-## TODOs
+## ai config
 
-### opencode
+Export `LITELLM_API_URL`, `LITELLM_API_KEY`, and `KTL_MCP_URL` before launching OpenCode.
+Keep credentials outside the repository, for example in `~/.zshenv.local`; the tracked shell files do not load that file automatically, so source it explicitly if used:
 
-- [ ] configure [models](https://opencode.ai/v2/docs/models)
-- [ ] configure [permissions](https://opencode.ai/v2/docs/permissions)
-- [ ] configure [agents](https://opencode.ai/v2/docs/agents)
-- [ ] configure [policies](https://opencode.ai/v2/docs/policies)
-- [ ] check [snapshots](https://opencode.ai/v2/docs/config/#snapshots)
+```zsh
+source ~/.zshenv.local
+```
 
