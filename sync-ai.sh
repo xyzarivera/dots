@@ -4,6 +4,8 @@ echo "( • ̀ω•́ )✧ symlinking ai config files"
 # files to symlink
 symFiles=(
   config/opencode/opencode.jsonc
+  config/opencode/cli.jsonc
+  config/opencode/AGENTS.md
   config/opencode/agents
   config/opencode/skills
 )
