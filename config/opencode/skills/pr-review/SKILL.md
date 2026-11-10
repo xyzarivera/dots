@@ -11,13 +11,9 @@ If no PR link is given, ask for it. If the PR description has no Asana link, ask
 
 ## Permission rules (mandatory)
 
-Every external call requires explicit user approval. Never assume consent.
-
-- **`gh` commands**: ask before each invocation. Read-only only: `gh pr view`, `gh pr diff`, `gh pr checks`, `gh api` (GET only).
-- **Asana MCP**: ask before each tool call. Read-only (get task, stories, attachments).
-- **Notion MCP**: ask before each tool call. Read-only (fetch, search).
-- **Never** post comments, approve, request changes, merge, or edit anything (GitHub, Asana, Notion) unless the user explicitly asks, and confirm again right before doing it.
-- If a call is denied, continue with the remaining sources and note the gap in the report.
+- **Read-only calls are allowed by default** — no need to ask first. This covers: `gh pr view`, `gh pr diff`, `gh pr checks`, `gh api` (GET only), Asana MCP reads (get task, stories, attachments, search), and Notion MCP reads (fetch, search).
+- **Any call that creates, edits, or otherwise mutates state requires explicit user approval before running it.** This covers posting comments, approving, requesting changes, merging, or editing anything in GitHub, Asana, or Notion. Never assume consent for these; confirm again right before doing it, with the exact text/action shown.
+- If a read-only call fails or is denied, continue with the remaining sources and note the gap in the report.
 
 (Adjust the `asana_*` / `notion_*` patterns to match your configured MCP server names.)
 
@@ -26,7 +22,7 @@ Every external call requires explicit user approval. Never assume consent.
 Follow the steps in order. Do the context gathering (steps 1-3) fully before reading any code (step 4).
 
 ### 1. Review the PR description
-Ask permission, then run:
+Run:
 
 ```zsh
 gh pr view <url> --json title,body,author,baseRefName,headRefName,labels,files,additions,deletions,reviews,comments
@@ -40,7 +36,7 @@ Extract from the title and body:
 Also check the PR comments and branch name for ticket references if the body has none.
 
 ### 2. Review the Asana ticket
-Ask permission, then use the Asana MCP to fetch the ticket: title, description, acceptance criteria, subtasks, comments/stories, attachments, parent task, and dependencies.
+Use the Asana MCP to fetch the ticket: title, description, acceptance criteria, subtasks, comments/stories, attachments, parent task, and dependencies.
 
 Extract:
 - Goal, acceptance criteria, scope boundaries and non-goals
@@ -48,7 +44,7 @@ Extract:
 - **All Asana links** (parent, related, dependent tasks) and **all Notion links**
 
 ### 3. Review linked Asana and Notion items
-For each Asana link and Notion link found in the ticket (and the PR description), ask permission, then fetch it:
+For each Asana link and Notion link found in the ticket (and the PR description), fetch it:
 - Asana tasks via the Asana MCP (read the description and key comments)
 - Notion pages via the Notion MCP (specs, designs, ADRs, API contracts)
 
@@ -60,7 +56,7 @@ Summarize the combined context before moving on:
 - Open questions or contradictions between PR description, ticket, and specs
 
 ### 4. Code review
-Ask permission, then run (read-only):
+Run (read-only):
 
 ```zsh
 gh pr diff <url>
@@ -93,7 +89,7 @@ Output in this format:
 - PR description: <one-line takeaway>
 - Asana ticket: <one-line takeaway>
 - Linked Asana/Notion: <list of items read, with one-line takeaway each>
-- Skipped / denied: <items, or "none">
+- Skipped / unavailable: <items, or "none">
 
 ### Summary
 <2-3 sentences: what the PR does and overall verdict>
