@@ -21,12 +21,6 @@ permissions:
   - action: webfetch
     resource: "*"
     effect: ask
-  - action: websearch
-    resource: "*"
-    effect: ask
-  - action: skill
-    resource: "*"
-    effect: ask
 
     # ALLOW
   - action: read
@@ -36,6 +30,9 @@ permissions:
     resource: "*"
     effect: allow
   - action: grep
+    resource: "*"
+    effect: allow
+  - action: skill
     resource: "*"
     effect: allow
 ---
