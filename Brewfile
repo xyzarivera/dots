@@ -1,10 +1,9 @@
-tap "common-fate/granted"
-tap "jesseduffield/lazydocker"
-tap "jesseduffield/lazygit"
-tap "koekeishiya/formulae"
-tap "laishulu/homebrew"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
+tap "anomalyco/tap", trusted: true
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
+tap "common-fate/granted", trusted: true
+tap "jesseduffield/lazydocker", trusted: true
+tap "jesseduffield/lazygit", trusted: true
+tap "laishulu/homebrew", trusted: true
 # General-purpose data compression with high compression ratio
 brew "xz"
 # CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM
@@ -21,14 +20,14 @@ brew "docker"
 brew "docker-compose"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# GitHub command-line tool
-brew "gh"
 # Library and utilities for processing GIFs
 brew "giflib"
+# GitHub command-line tool
+brew "gh"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Client library for huggingface.co hub
-brew "hf"
+# Easiest way to access your cloud
+brew "granted"
 # Image manipulation library
 brew "jpeg"
 # Lightweight and flexible command-line JSON processor
@@ -43,6 +42,8 @@ brew "pango"
 brew "librsvg"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Package compiler and linker metadata toolkit
@@ -55,6 +56,8 @@ brew "pyenv-virtualenv"
 brew "python-setuptools"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Safe, concurrent, practical language
+brew "rust"
 # Command-line YAML parser
 brew "shyaml"
 # Tool Command Language
@@ -67,31 +70,37 @@ brew "tmux"
 brew "tree"
 # Parser generator tool
 brew "tree-sitter-cli"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # General-purpose lossless data-compression library
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Tool for writing better scripts
 brew "zx"
-# The easiest way to access your cloud.
-brew "common-fate/granted/granted"
+# OpenCode V2 - the AI coding agent for the terminal
+brew "anomalyco/tap/opencode-v2", trusted: true
+# Simple hotkey-daemon for macOS.
+brew "asmvik/formulae/skhd"
 # A simple terminal UI for docker, written in Go
 brew "jesseduffield/lazydocker/lazydocker"
-# Simple hotkey-daemon for macOS.
-brew "koekeishiya/formulae/skhd"
 # macOS Input Source Manager
 brew "laishulu/homebrew/macism"
-# GPU-accelerated terminal emulator
-cask "alacritty"
+# Command-line interface for 1Password
+cask "1password-cli"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Voice and text chat software
 cask "discord"
+# Web browser
+cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Agent-centric IDE with spec-driven development
 cask "kiro"
+# AI-powered productivity tool for the command-line
+cask "kiro-cli"
 # App to write, plan, collaborate, and get organised
 cask "notion"
 # Collaboration platform for API development
@@ -107,7 +116,6 @@ cask "visual-studio-code"
 vscode "databricks.databricks"
 vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
-vscode "github.copilot-chat"
 vscode "janisdd.vscode-edit-csv"
 vscode "mechatroner.rainbow-csv"
 vscode "mhutchie.git-graph"
